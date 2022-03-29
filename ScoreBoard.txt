@@ -1,0 +1,5 @@
+flower kwiat 1
+two dwa 2
+one jeden 1
+house dom 2
+three trzy 1

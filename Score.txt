@@ -1,0 +1,5 @@
+ (jeden,one,0)
+ (dwa,two,0)
+ (trzy,three,0)
+ (kwiat,flower,0)
+ (dom,house,0)
