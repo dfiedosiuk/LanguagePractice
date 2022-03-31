@@ -1,4 +1,6 @@
 
+import scala.+:
+import scala.collection.mutable.ListBuffer
 import scala.io.StdIn.readLine
 import scala.util.Random.shuffle
 
@@ -25,6 +27,33 @@ case class User(){
       println(s"Bad answer! Correct answer is: ${ansWord}")
       (reqWord, ansWord, score)
     }
+  }
+
+
+  def addToDictionary(ls: ListBuffer[(String, String)]): ListBuffer[(String, String)]={
+    val wantAddWord = readLine("Czy chcesz dodac nowe slowo: (y/n) ? ").toLowerCase
+    wantAddWord match {
+      case "y" =>{
+        val pWord = readLine("Podaj slowo po polsku: ").toLowerCase
+        val eWord = readLine("Podaj slowo po angielsku ").toLowerCase
+        val pair = (pWord, eWord)
+        addToDictionary(ls += pair)
+      }
+      case _ => ls
+    }
+
+//    var newWords = ListBuffer.empty[(String,String)]
+//    do{
+//
+//      if(wantAddWord == "y"){
+//        val pWord = readLine("Podaj slowo po polsku: ").toLowerCase
+//        val eWord = readLine("Podaj slowo po angielsku ").toLowerCase
+//        val pair =  (pWord, eWord)
+//        println(pair)
+//      }
+//    }while(wantAddWord == "y")
+//    newWords.foreach(println)
+//    newWords
   }
 
 }

@@ -1,4 +1,5 @@
 import java.io.{BufferedWriter, FileWriter}
+import scala.collection.mutable.ListBuffer
 import scala.io.Source
 
 object LanguageTeacher extends App {
@@ -9,16 +10,26 @@ object LanguageTeacher extends App {
     (pWord, eWord, score.toInt)
   }
 
+
   val student = new User
-  val newScoreBoard = student.practice(scoreBoard)
+  //  val newScoreBoard = student.practice(scoreBoard)
+  val newWords = ListBuffer.empty[(String,String)]
+  student.addToDictionary(newWords).foreach(println)
 
-  val file = "ScoreBoard.txt"
-  val writer = new BufferedWriter(new FileWriter(file))
-  newScoreBoard
-    .map(line => (s"${line._1} ${line._2} ${line._3}").mkString("","","\n"))
-    .foreach(writer.write)
-  writer.close()
 
-//  practice(scoreBoard).foreach(println)
+  //  val writerDictionary = new BufferedWriter(new FileWriter("dictionary2.txt"))
+  //  lines
+  //    .map(line => (s"${line._1} ${line._2} ${line._3}").mkString("","","\n"))
+  //    .foreach(writerScore.write)
+  //  writerScore.close()
+
+  //  val writerScore = new BufferedWriter(new FileWriter("ScoreBoard.txt"))
+  //  newScoreBoard
+  //    .map(line => (s"${line._1} ${line._2} ${line._3}").mkString("","","\n"))
+  //    .foreach(writerScore.write)
+  //  writerScore.close()
+
+
+  //  practice(scoreBoard).foreach(println)
 
 }
